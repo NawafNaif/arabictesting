@@ -1,0 +1,1954 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>مسار تعلّم العربية - قواعد، اختبارات، ولهجات</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --primary: #0f766e;
+      --primary-soft: #14b8a6;
+      --accent: #f97316;
+      --accent-soft: #fed7aa;
+      --bg: #0f172a;
+      --bg-elevated: #020617;
+      --bg-card: #020617;
+      --bg-soft: #1e293b;
+      --text: #e5e7eb;
+      --text-muted: #9ca3af;
+      --danger: #ef4444;
+      --success: #22c55e;
+      --border-color: #334155;
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.55);
+      --radius-lg: 16px;
+      --radius-md: 10px;
+      --transition-fast: 0.2s ease;
+      --transition-med: 0.35s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Cairo", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top, #1e293b 0, #020617 40%, #000 100%);
+      color: var(--text);
+      min-height: 100%;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    /* Layout */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(
+        to bottom,
+        rgba(15, 23, 42, 0.96),
+        rgba(15, 23, 42, 0.9),
+        transparent
+      );
+      border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+    }
+
+    .top-bar {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 14px 18px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      white-space: nowrap;
+    }
+
+    .brand-logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 12px;
+      background: radial-gradient(circle at 20% 20%, #22c55e, #0f766e 35%, #020617);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #e5fef5;
+      font-weight: 700;
+      font-size: 18px;
+      box-shadow: 0 10px 25px rgba(16, 185, 129, 0.45);
+    }
+
+    .brand-text-main {
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      font-size: 18px;
+    }
+
+    .brand-text-sub {
+      display: block;
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: -2px;
+    }
+
+    nav {
+      display: flex;
+      gap: 6px;
+      background: rgba(15, 23, 42, 0.94);
+      padding: 4px;
+      border-radius: 999px;
+      box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.25),
+        0 20px 50px rgba(15, 23, 42, 0.9);
+    }
+
+    .nav-button {
+      border: none;
+      padding: 8px 18px;
+      border-radius: 999px;
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 14px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: background var(--transition-fast), color var(--transition-fast),
+        transform 0.12s ease, box-shadow var(--transition-fast);
+      white-space: nowrap;
+    }
+
+    .nav-button span.icon {
+      font-size: 14px;
+      opacity: 0.95;
+    }
+
+    .nav-button:hover {
+      background: rgba(30, 64, 175, 0.25);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    .nav-button.active {
+      background: linear-gradient(135deg, var(--primary), var(--primary-soft));
+      color: #ecfdf5;
+      box-shadow: 0 10px 30px rgba(20, 184, 166, 0.4);
+    }
+
+    .nav-button.active .icon {
+      opacity: 1;
+    }
+
+    .main-wrapper {
+      max-width: 1080px;
+      width: 100%;
+      margin: 10px auto 32px;
+      padding: 0 16px 32px;
+      flex: 1;
+    }
+
+    .hero {
+      padding: 12px 0 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .hero-text {
+      max-width: 620px;
+    }
+
+    .hero-title {
+      font-size: clamp(22px, 3vw, 26px);
+      margin: 0 0 6px;
+      font-weight: 700;
+    }
+
+    .hero-subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .badge-pill {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(15, 23, 42, 0.8);
+    }
+
+    .badge-pill strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .hero-highlight {
+      padding: 8px 12px;
+      border-radius: var(--radius-md);
+      border: 1px dashed rgba(148, 163, 184, 0.4);
+      background: radial-gradient(circle at top right, #1e293b 0, #020617 65%);
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .hero-highlight strong {
+      color: var(--primary-soft);
+    }
+
+    .card-shell {
+      margin-top: 8px;
+      border-radius: var(--radius-lg);
+      background: radial-gradient(circle at top, #1f2937 0, #020617 55%);
+      padding: 18px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-shell::before {
+      content: "";
+      position: absolute;
+      inset: -30%;
+      background:
+        radial-gradient(circle at 10% 0, rgba(14, 165, 233, 0.15), transparent 55%),
+        radial-gradient(circle at 100% 0, rgba(52, 211, 153, 0.2), transparent 50%);
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .card-content {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+      gap: 18px;
+      align-items: flex-start;
+    }
+
+    .section-panel {
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      padding: 14px 14px 16px;
+      min-height: 260px;
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+      animation: fadeIn var(--transition-med);
+    }
+
+    .section-panel.active {
+      display: flex;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .section-title {
+      margin: 0;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title span.icon {
+      font-size: 17px;
+    }
+
+    .section-subtitle {
+      margin: 0;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .section-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .controls-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .control-label {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .pill-select {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .pill-option {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      padding: 4px 9px;
+      font-size: 12px;
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: background var(--transition-fast), color var(--transition-fast),
+        border-color var(--transition-fast), transform 0.1s ease;
+    }
+
+    .pill-option:hover {
+      border-color: var(--primary-soft);
+      color: var(--text);
+      transform: translateY(-0.5px);
+    }
+
+    .pill-option.active {
+      background: rgba(45, 212, 191, 0.16);
+      border-color: var(--primary-soft);
+      color: #ecfdf5;
+    }
+
+    /* Buttons */
+    .btn {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      background: linear-gradient(135deg, #0f172a, #020617);
+      color: var(--text);
+      padding: 7px 16px;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: background var(--transition-fast), transform 0.13s ease,
+        box-shadow var(--transition-fast), border-color var(--transition-fast);
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.8);
+    }
+
+    .btn.primary {
+      border-color: transparent;
+      background: linear-gradient(135deg, var(--primary), var(--primary-soft));
+      color: #ecfdf5;
+      box-shadow: 0 12px 35px rgba(16, 185, 129, 0.6);
+    }
+
+    .btn.outline-accent {
+      border-color: rgba(248, 250, 252, 0.25);
+      background: radial-gradient(circle at top left, #1f2937, #020617 60%);
+      color: #f9fafb;
+    }
+
+    .btn.small {
+      padding: 5px 12px;
+      font-size: 12px;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.95);
+    }
+
+    .btn.primary:hover {
+      box-shadow: 0 16px 40px rgba(16, 185, 129, 0.7);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+      box-shadow: 0 6px 16px rgba(15, 23, 42, 0.85);
+    }
+
+    .btn-icon {
+      font-size: 14px;
+    }
+
+    /* Tips / list styling */
+    .tips-list {
+      margin: 4px 0 0;
+      padding-inline-start: 18px;
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.9;
+    }
+
+    .tips-card {
+      background: rgba(15, 23, 42, 0.95);
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      padding: 12px 13px 14px;
+      font-size: 13px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .tips-card-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #e5e7eb;
+      font-size: 13px;
+    }
+
+    .badge-soft {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.7);
+      color: var(--text-muted);
+    }
+
+    /* Common mistakes */
+    .mistake-item {
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      padding: 8px 10px;
+      background: rgba(15, 23, 42, 0.9);
+      margin-bottom: 6px;
+      cursor: pointer;
+      transition: border-color var(--transition-fast), background var(--transition-fast);
+    }
+
+    .mistake-item:hover {
+      border-color: var(--primary-soft);
+      background: rgba(15, 23, 42, 0.98);
+    }
+
+    .mistake-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+    }
+
+    .mistake-tag {
+      font-size: 11px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: rgba(239, 68, 68, 0.12);
+      color: #fecaca;
+      border: 1px solid rgba(239, 68, 68, 0.6);
+    }
+
+    .mistake-body {
+      margin-top: 6px;
+      font-size: 12px;
+      color: var(--text-muted);
+      display: none;
+    }
+
+    .mistake-item.open .mistake-body {
+      display: block;
+    }
+
+    .mistake-example {
+      margin-top: 4px;
+      padding: 4px 6px;
+      border-radius: 8px;
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px dashed rgba(148, 163, 184, 0.5);
+    }
+
+    .mistake-example span.bad {
+      color: #fecaca;
+      text-decoration: line-through;
+    }
+
+    .mistake-example span.good {
+      color: #bbf7d0;
+      font-weight: 600;
+    }
+
+    /* Quiz */
+    .quiz-card {
+      background: rgba(15, 23, 42, 0.95);
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      padding: 12px 13px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .quiz-question {
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .quiz-meta {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .quiz-option-btn {
+      width: 100%;
+      text-align: right;
+      justify-content: space-between;
+    }
+
+    .quiz-input {
+      width: 100%;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      padding: 8px 14px;
+      background: rgba(15, 23, 42, 0.92);
+      color: var(--text);
+      font-size: 14px;
+      outline: none;
+      transition: border-color var(--transition-fast),
+        box-shadow var(--transition-fast), background var(--transition-fast);
+    }
+
+    .quiz-input:focus {
+      border-color: var(--primary-soft);
+      box-shadow: 0 0 0 1px rgba(45, 212, 191, 0.4);
+      background: rgba(15, 23, 42, 0.98);
+    }
+
+    .quiz-feedback {
+      font-size: 12px;
+      min-height: 20px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .quiz-feedback.success {
+      color: #bbf7d0;
+    }
+
+    .quiz-feedback.error {
+      color: #fecaca;
+    }
+
+    .quiz-explanation {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .quiz-stats {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* Dialects */
+    .dialect-card {
+      background: rgba(15, 23, 42, 0.95);
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      padding: 12px 13px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 13px;
+    }
+
+    .dialect-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .dialect-msa {
+      font-size: 13px;
+      padding: 6px 8px;
+      border-radius: 8px;
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+    }
+
+    .dialect-table {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.6fr);
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .dialect-variant {
+      border-radius: 8px;
+      padding: 6px 8px;
+      background: rgba(15, 23, 42, 0.97);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+    }
+
+    .dialect-variant-header {
+      font-size: 12px;
+      color: #e5e7eb;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 2px;
+    }
+
+    .dialect-variant-body {
+      font-size: 13px;
+      margin-bottom: 2px;
+    }
+
+    .dialect-note {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .fun-challenge {
+      font-size: 12px;
+      padding: 6px 8px;
+      border-radius: 10px;
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px dashed rgba(148, 163, 184, 0.6);
+      color: #e5e7eb;
+    }
+
+    footer {
+      max-width: 1080px;
+      margin: 0 auto 20px;
+      padding: 0 18px;
+      font-size: 11px;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+      opacity: 0.85;
+    }
+
+    footer a {
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      text-underline-offset: 3px;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(4px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes scaleIn {
+      from {
+        opacity: 0;
+        transform: scale(0.92) translateY(4px);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 860px) {
+      .card-content {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .section-panel {
+        min-height: 0;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .top-bar {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      nav {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .brand {
+        justify-content: flex-start;
+      }
+
+      .card-shell {
+        padding: 14px;
+      }
+
+      .hero {
+        padding: 8px 0 14px;
+      }
+
+      .hero-badges {
+        margin-top: 6px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .nav-button {
+        padding-inline: 10px;
+        font-size: 12px;
+      }
+
+      .hero-title {
+        font-size: 19px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="top-bar">
+      <div class="brand">
+        <div class="brand-logo">أ</div>
+        <div>
+          <div class="brand-text-main">مسار تعلّم العربية</div>
+          <span class="brand-text-sub">قواعد · اختبارات · لهجات</span>
+        </div>
+      </div>
+      <nav aria-label="أقسام التعلّم">
+        <button
+          class="nav-button active"
+          data-target="foundation"
+          type="button"
+        >
+          <span class="icon">🧱</span>
+          <span>أساسيات الكتابة</span>
+        </button>
+        <button class="nav-button" data-target="quizzes" type="button">
+          <span class="icon">🧠</span>
+          <span>اختبارات سريعة</span>
+        </button>
+        <button class="nav-button" data-target="dialects" type="button">
+          <span class="icon">🌍</span>
+          <span>لهجات ومرح</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-wrapper">
+    <section class="hero" aria-label="مقدمة">
+      <div class="hero-text">
+        <h1 class="hero-title">حوّل القواعد والاختبارات واللهجات إلى رحلة ممتعة.</h1>
+        <p class="hero-subtitle">
+          بدلاً من لوحات الكتابة والصوت الآلي، ستجد هنا بنك أسئلة، أخطاء شائعة،
+          تحدّيات سريعة، ونوافذ على اللهجات العربية للمتعلمين من كل الخلفيات.
+        </p>
+        <div class="hero-badges">
+          <span class="badge-pill">
+            <strong>بدون صوت</strong> تركيز على الفهم والكتابة
+          </span>
+          <span class="badge-pill">
+            <strong>اختبارات</strong> بنك أسئلة متنوّع
+          </span>
+          <span class="badge-pill">
+            <strong>لهجات</strong> مصرية، شامية، سعودية
+          </span>
+        </div>
+      </div>
+      <div class="hero-highlight">
+        ابدأ بـ<strong>أساسيات الكتابة</strong> لتتعرّف على الأخطاء الشائعة وخطّة
+        التحسين، ثم انتقل إلى <strong>الاختبارات السريعة</strong> لتتحدّى نفسك، وأنهِ
+        الجولة مع <strong>لهجات ومرح</strong> لتتعرّف على العبارات اليومية في أكثر
+        من بلد عربي، مع زاوية خاصة باللهجة السعودية.
+      </div>
+    </section>
+
+    <section class="card-shell" aria-label="أقسام التعلّم التفاعلية">
+      <div class="card-content">
+        <!-- Left: main sections -->
+        <div>
+          <!-- Foundation / Common mistakes / Sources -->
+          <section
+            class="section-panel active"
+            id="section-foundation"
+            aria-labelledby="foundation-title"
+          >
+            <div class="section-header">
+              <div>
+                <h2 class="section-title" id="foundation-title">
+                  <span class="icon">🧱</span>
+                  أساسيات الكتابة والإملاء
+                </h2>
+                <p class="section-subtitle">
+                  أخطاء شائعة مقسّمة لمستويات، مع أمثلة إضافية وخطوات عملية للتحسين
+                  حتى لو كنت تتعلّم العربية كلغة ثانية.
+                </p>
+              </div>
+            </div>
+
+            <div class="section-body">
+              <div class="tips-card">
+                <div class="tips-card-header">
+                  <span>أخطاء شائعة في العربية المكتوبة</span>
+                  <span class="badge-soft">اضغط على كل سطر لعرض التفاصيل والأمثلة</span>
+                </div>
+                <div id="mistakes-list">
+                  <!-- يتم ملؤه من جافاسكربت -->
+                </div>
+              </div>
+
+              <div class="tips-card">
+                <div class="tips-card-header">
+                  <span>خطة بسيطة لتحسين كتابتك خلال ٣٠ يومًا</span>
+                </div>
+                <ul class="tips-list">
+                  <li>اختر <strong>دفترًا واحدًا</strong> مخصّصًا للعربية، واكتب فيه يوميًا ٥ أسطر فقط عن يومك.</li>
+                  <li>كل أسبوع، اختر <strong>٥ كلمات جديدة</strong> (من كتاب، موقع، أو درس) واكتب بها جملة مفيدة بخط واضح.</li>
+                  <li>صوّر صفحة من كتاب عربي تحبّه، ثم حاول <strong>تقليد شكل الفقرة</strong> والمسافات بين الجمل والعناوين.</li>
+                  <li>اطلب من صديق أو معلّم أن يضع <strong>دائرة حول الأخطاء فقط</strong> دون تصحيحها، ثم حاول أنت اكتشاف الصواب.</li>
+                  <li>استخدم هذه الصفحة: بعد كل اختبار، دوّن في دفترك الأخطاء التي وقعت فيها، وأعد كتابتها بشكل صحيح ٣ مرّات.</li>
+                </ul>
+              </div>
+
+              <div class="tips-card">
+                <div class="tips-card-header">
+                  <span>من أين أبدأ؟ أفكار لمصادر مساعدة</span>
+                </div>
+                <ul class="tips-list">
+                  <li>
+                    ابحث عن قنوات يوتيوب متخصّصة مثل: <strong>"تعليم الإملاء"</strong>،
+                    <strong>"قواعد اللغة العربية للمبتدئين"</strong>، أو
+                    <strong>"قراءة للأطفال"</strong>.
+                  </li>
+                  <li>
+                    استخدم مواقع تقدّم نصوصًا قصيرة مثل المقالات أو القصص، واقرأ كل يوم فقرة واحدة فقط مع
+                    <strong>تسطير الكلمات التي لا تفهمها</strong>.
+                  </li>
+                  <li>
+                    استعن بكتب مبسّطة مثل: <strong>"الإملاء الميسر"</strong>،
+                    <strong>"قواعد اللغة العربية في جداول"</strong>، أو أي سلسلة موجهة للمرحلة الابتدائية.
+                  </li>
+                  <li>
+                    للمتعلمين الأجانب، ابحث عن برامج بعنوان
+                    <strong>"Arabic for Beginners"</strong> أو
+                    <strong>"Arabic Reading Practice"</strong> مع دعم للغة الإنجليزية.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Quizzes -->
+          <section
+            class="section-panel"
+            id="section-quizzes"
+            aria-labelledby="quizzes-title"
+          >
+            <div class="section-header">
+              <div>
+                <h2 class="section-title" id="quizzes-title">
+                  <span class="icon">🧠</span>
+                  اختبارات سريعة وبنك أسئلة
+                </h2>
+                <p class="section-subtitle">
+                  أسئلة اختيار من متعدّد، وملء فراغات، وتصحيح جمل، مع بنك موسّع من
+                  الأسئلة وشرح بعد كل سؤال لتتعلّم من الخطأ.
+                </p>
+              </div>
+            </div>
+
+            <div class="section-body">
+              <div class="controls-row">
+                <span class="control-label">اختر نمط الأسئلة المفضّل لديك:</span>
+                <div class="pill-select" id="quiz-mode-select">
+                  <button
+                    type="button"
+                    class="pill-option active"
+                    data-mode="mixed"
+                  >
+                    مختلط (قواعد + إملاء + مفردات)
+                  </button>
+                  <button
+                    type="button"
+                    class="pill-option"
+                    data-mode="spelling"
+                  >
+                    تركيز على الإملاء
+                  </button>
+                  <button
+                    type="button"
+                    class="pill-option"
+                    data-mode="grammar"
+                  >
+                    تركيز على القواعد
+                  </button>
+                </div>
+              </div>
+
+              <div class="quiz-card">
+                <div class="quiz-meta">
+                  السؤال رقم <span id="quiz-index">1</span> من
+                  <span id="quiz-total">—</span>
+                </div>
+                <div id="quiz-question" class="quiz-question">
+                  <!-- نص السؤال -->
+                </div>
+
+                <div id="quiz-options" class="quiz-options"></div>
+
+                <div id="quiz-input-wrapper" style="margin-top: 6px; display: none;">
+                  <input
+                    id="quiz-input"
+                    class="quiz-input"
+                    type="text"
+                    autocomplete="off"
+                    spellcheck="false"
+                    placeholder="اكتب إجابتك هنا..."
+                  />
+                </div>
+
+                <div class="controls-row" style="margin-top: 6px;">
+                  <button
+                    type="button"
+                    id="quiz-check-btn"
+                    class="btn primary small"
+                  >
+                    <span class="btn-icon">✅</span>
+                    <span>تحقق من الإجابة</span>
+                  </button>
+                  <button
+                    type="button"
+                    id="quiz-next-btn"
+                    class="btn small"
+                  >
+                    <span class="btn-icon">⏭️</span>
+                    <span>سؤال آخر</span>
+                  </button>
+                </div>
+
+                <div id="quiz-feedback" class="quiz-feedback">
+                  جرّب أن تجيب أولًا قبل النظر إلى الشرح.
+                </div>
+                <div id="quiz-explanation" class="quiz-explanation"></div>
+                <div id="quiz-stats" class="quiz-stats"></div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Dialects and fun -->
+          <section
+            class="section-panel"
+            id="section-dialects"
+            aria-labelledby="dialects-title"
+          >
+            <div class="section-header">
+              <div>
+                <h2 class="section-title" id="dialects-title">
+                  <span class="icon">🌍</span>
+                  لهجات ومرح للمتعلمين
+                </h2>
+                <p class="section-subtitle">
+                  تعرّف على كيف تُقال الجملة نفسها بالفصحى وبلهجات مختلفة، مع تركيز
+                  إضافي على اللهجة السعودية، وتحدٍّ صغير في كل مرّة.
+                </p>
+              </div>
+            </div>
+
+            <div class="section-body">
+              <div class="controls-row" aria-label="اختيار موقف يومي">
+                <span class="control-label">اختر موقفًا يوميًا:</span>
+                <div class="pill-select" id="dialect-topics">
+                  <!-- يُملأ من جافاسكربت -->
+                </div>
+              </div>
+
+              <div class="dialect-card">
+                <div id="dialect-topic-title" class="dialect-title">
+                  <!-- عنوان الموقف -->
+                </div>
+                <div id="dialect-msa" class="dialect-msa">
+                  <!-- الفصحى -->
+                </div>
+                <div id="dialect-table" class="dialect-table">
+                  <!-- اللهجات -->
+                </div>
+                <div id="dialect-extra-note" class="dialect-note"></div>
+              </div>
+
+              <div id="fun-challenge" class="fun-challenge">
+                <!-- تحدٍّ ممتع -->
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Right: guidance / meta tips -->
+        <aside
+          aria-label="نصيحة سريعة"
+          style="
+            background: radial-gradient(circle at top left, #0f172a, #020617 65%);
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            padding: 12px 13px 13px;
+            font-size: 12px;
+            color: var(--text-muted);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+          "
+        >
+          <div
+            style="
+              position: absolute;
+              inset-inline-start: -30px;
+              top: -40px;
+              width: 120px;
+              height: 120px;
+              border-radius: 999px;
+              background: radial-gradient(circle at center, #22c55e, transparent);
+              opacity: 0.09;
+            "
+          ></div>
+          <div style="position: relative; z-index: 1;">
+            <div
+              style="
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                margin-bottom: 4px;
+                color: #e5e7eb;
+              "
+            >
+              <span
+                style="
+                  width: 18px;
+                  height: 18px;
+                  border-radius: 999px;
+                  display: inline-flex;
+                  align-items: center;
+                  justify-content: center;
+                  background: rgba(148, 163, 184, 0.3);
+                  font-size: 11px;
+                "
+              >✨</span>
+              <strong style="font-size: 12px;">كيف تستفيد بأقصى قدر؟</strong>
+            </div>
+            <ul
+              style="
+                margin: 4px 0 0;
+                padding-inline-start: 18px;
+                line-height: 1.8;
+              "
+            >
+              <li>
+                في <strong>أساسيات الكتابة</strong>، دوّن في دفتر خارجي أكثر ٣ أخطاء
+                تقع فيها عادة، وضعها في أعلى الصفحة كتذكير.
+              </li>
+              <li>
+                في <strong>الاختبارات</strong>، لا تبحث عن الحل قبل أن تحاول؛ المهم
+                أن <strong>تفكر</strong> لا أن تحصل على نتيجة مثالية.
+              </li>
+              <li>
+                في <strong>اللهجات</strong>، اختر موقفًا واحدًا فقط، وكرّر العبارات
+                بصوت عالٍ مع صديق، كأنكم تمثّلون مشهدًا قصيرًا.
+              </li>
+            </ul>
+          </div>
+          <div
+            style="
+              position: relative;
+              z-index: 1;
+              margin-top: 4px;
+              display: flex;
+              align-items: center;
+              gap: 6px;
+              font-size: 11px;
+              color: #a5b4fc;
+            "
+          >
+            <span>💡</span>
+            <span>
+              هذه الصفحة تعمل بالكامل دون صوت آلي؛ الهدف أن تستخدم عينك وعقلك
+              ودفترك، لا أن تستمع فقط.
+            </span>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>يمكنك تعديل بنك الأسئلة والمواقف اللهجية داخل الملف بما يناسب طلابك.</span>
+    <span>جرّب إضافة أسئلة جديدة كل أسبوع لتحافظ على عنصر المفاجأة.</span>
+  </footer>
+
+  <script>
+    (function () {
+      "use strict";
+
+      /* =========================
+         SPA NAVIGATION
+         ========================= */
+      const SPA = (function () {
+        const navButtons = Array.from(document.querySelectorAll(".nav-button"));
+        const sections = {
+          foundation: document.getElementById("section-foundation"),
+          quizzes: document.getElementById("section-quizzes"),
+          dialects: document.getElementById("section-dialects"),
+        };
+
+        function showSection(targetId) {
+          navButtons.forEach((btn) => {
+            btn.classList.toggle(
+              "active",
+              btn.getAttribute("data-target") === targetId
+            );
+          });
+
+          Object.entries(sections).forEach(([key, el]) => {
+            el.classList.toggle("active", key === targetId);
+          });
+        }
+
+        function init() {
+          navButtons.forEach((btn) => {
+            btn.addEventListener("click", () => {
+              const target = btn.getAttribute("data-target");
+              if (target) {
+                showSection(target);
+              }
+            });
+          });
+        }
+
+        return { init };
+      })();
+
+      /* =========================
+         COMMON MISTAKES (FOUNDATION)
+         ========================= */
+      const MistakesModule = (function () {
+        const container = document.getElementById("mistakes-list");
+
+        const mistakes = [
+          {
+            title: "الخلط بين \"إلى\" و\"في\" و\"على\"",
+            tag: "إملاء / حروف جر (مستوى مبتدئ)",
+            wrong: "أذهب لـ المدرسة كل صباح.",
+            right: "أذهبُ إلى المدرسة كلَّ صباحٍ.",
+            explanation:
+              "استخدام حروف الجر في العربية يحتاج دقّة؛ نقول \"أذهب إلى المدرسة\" لا \"لـ المدرسة\" في هذا السياق. جرّب أن تحفظ مع كل فعل الحرف الذي يرافقه: أذهب إلى، أعيش في، أستند على...",
+          },
+          {
+            title: "كتابة همزة الوصل والقطع في الأسماء",
+            tag: "إملاء / همزات (مستوى متوسط)",
+            wrong: "اِبنُ الرجلُ مجتهد.",
+            right: "ابنُ الرجلِ مجتهدٌ.",
+            explanation:
+              "في كلمة \"ابن\" همزة وصل تُكتب دون همزة في وسط الكلام، بينما في \"إبراهيم\" مثلاً تكون همزة قطع وتظهر على الألف. قاعدة سريعة: أسماء مثل (ابن، اسم، امرؤ، اثنان) همزتها همزة وصل في معظم المواضع.",
+          },
+          {
+            title: "الخلط بين التاء المربوطة والهاء",
+            tag: "إملاء / تاء مربوطة (مستوى مبتدئ)",
+            wrong: "هذا فتاه مجتهد.",
+            right: "هذه فتاةٌ مجتهدةٌ.",
+            explanation:
+              "التاء المربوطة تُنطَق هاءً في الوقف لكن تُكتب (ة) في أغلب الأسماء المؤنثة مثل: مدرسة، مكتبة، شجرة، فتاة. إذا استطعت أن تثنّي الكلمة (فتاتان)، فالغالب أنها تنتهي بتاء مربوطة.",
+          },
+          {
+            title: "استخدام \"لاكن\" بدلاً من \"لكن\"",
+            tag: "إملاء / كتابة شائعة",
+            wrong: "أحب القراءة لاكني أتعب سريعًا.",
+            right: "أحب القراءة لكنّي أتعب سريعًا.",
+            explanation:
+              "الكلمة الصحيحة هي \"لكن\" بدون ألف، وهي من أكثر الأخطاء الشائعة في الكتابة اليومية. تذكّر القاعدة: (إنّ، أن، لكن، كأن، ليت، لعل) تكتب بهذه الصورة.",
+          },
+          {
+            title: "الجمع بين الفاعل والضمير المتصل",
+            tag: "قواعد / فاعل (مستوى متوسط)",
+            wrong: "الطلابُ حضروا هم إلى الحفل.",
+            right: "الطلابُ حضروا إلى الحفل.",
+            explanation:
+              "لا نحتاج إلى ضمير \"هم\" لأن \"الطلاب\" فاعل ظاهر، والجمع بينهما يُعَدُّ حشوًا غير سليم. القاعدة: يكفي أن يكون الفاعل ظاهرًا مرة واحدة في الجملة.",
+          },
+          {
+            title: "الياء أم الألف المقصورة في آخر الكلمة؟",
+            tag: "إملاء / ياء وألف مقصورة",
+            wrong: "هذى هدي جميل.",
+            right: "هذه هُدى جميلٌ.",
+            explanation:
+              "بعض الأسماء تنتهي بألف مقصورة (ى) مثل: هدى، فتى، مصطفى، وبعضها ينتهي بياء (ي) مثل: نادي، كرسي. قاعدة مساعدة: راجع الكلمة في المفرد والجمع؛ إذا أصبحت (هدايا) فالغالب أنها تنتهي بألف مقصورة.",
+          },
+          {
+            title: "إضافة الألف بعد واو الجماعة",
+            tag: "إملاء / أواخر الأفعال",
+            wrong: "كتبواْ الدرسَ بسرعة.",
+            right: "كتبوا الدرسَ بسرعة.",
+            explanation:
+              "واو الجماعة تُكتب وحدها دون ألف بعدها في المضارع الماضي (كتبوا، فهموا، رجعوا). الألف تُضاف فقط في الأفعال الخمسة عند النصب أو الجزم (لن يلعبوا، لم يلعبوا).",
+          },
+          {
+            title: "إدخال ألف الوصل على \"الـ\" التعريفية",
+            tag: "إملاء / الألف الزائدة",
+            wrong: "الـْمدرسة جميلة.",
+            right: "المدرسةُ جميلةٌ.",
+            explanation:
+              "حرف التعريف \"ال\" يبدأ بهمزة وصل لا تُكتب منفصلة ولا تُلفظ في وسط الكلام. يكفي أن تكتب الكلمة مباشرة: \"المدرسة\"، \"الكتاب\"، دون أي فاصل أو همزة ظاهرة.",
+          },
+          {
+            title: "التمييز بين \"إنَّ\" و\"أنَّ\"",
+            tag: "قواعد / توكيد (مستوى متقدم)",
+            wrong: "قال المعلم إنّ الطلابُ مجتهدون.",
+            right: "قال المعلمُ إنّ الطلابَ مجتهدون.",
+            explanation:
+              "\"إنَّ\" تأتي في بداية الجملة الاسمية أو بعد القول، وتنصب المبتدأ: (إنّ الطلابَ مجتهدون). تُستخدم \"أنَّ\" غالبًا بعد أفعال اليقين أو الظن: علمتُ أنَّ الحقَّ واضح.",
+          },
+          {
+            title: "العدد والمعدود (من ٣ إلى ١٠)",
+            tag: "قواعد / عدد (مستوى متقدم)",
+            wrong: "قرأت ثلاثةُ كتبٍ مفيدة.",
+            right: "قرأتُ ثلاثةَ كتبٍ مفيدةً.",
+            explanation:
+              "من ٣ إلى ١٠ يخالف العددُ المعدودَ في التذكير والتأنيث، ويكون المعدودُ جمعًا مجرورًا: ثلاثةُ كتبٍ، خمسُ قصصٍ، سبعُ صفحاتٍ. في مثالنا: \"قرأت ثلاثةَ كتبٍ مفيدةً\".",
+          },
+        ];
+
+        function createItem(mistake) {
+          const div = document.createElement("div");
+          div.className = "mistake-item";
+          div.innerHTML = `
+            <div class="mistake-header">
+              <span>${mistake.title}</span>
+              <span class="mistake-tag">${mistake.tag}</span>
+            </div>
+            <div class="mistake-body">
+              <div>${mistake.explanation}</div>
+              <div class="mistake-example">
+                <div>خطأ: <span class="bad">${mistake.wrong}</span></div>
+                <div>صواب: <span class="good">${mistake.right}</span></div>
+              </div>
+            </div>
+          `;
+          div.addEventListener("click", () => {
+            div.classList.toggle("open");
+          });
+          return div;
+        }
+
+        function init() {
+          if (!container) return;
+          mistakes.forEach((m) => container.appendChild(createItem(m)));
+        }
+
+        return { init };
+      })();
+
+      /* =========================
+         QUIZ MODULE
+         ========================= */
+      const QuizModule = (function () {
+        const questionEl = document.getElementById("quiz-question");
+        const optionsEl = document.getElementById("quiz-options");
+        const inputWrapperEl = document.getElementById("quiz-input-wrapper");
+        const inputEl = document.getElementById("quiz-input");
+        const checkBtn = document.getElementById("quiz-check-btn");
+        const nextBtn = document.getElementById("quiz-next-btn");
+        const feedbackEl = document.getElementById("quiz-feedback");
+        const explanationEl = document.getElementById("quiz-explanation");
+        const statsEl = document.getElementById("quiz-stats");
+        const indexEl = document.getElementById("quiz-index");
+        const totalEl = document.getElementById("quiz-total");
+        const modeSelect = document.getElementById("quiz-mode-select");
+
+        const questions = [
+          {
+            id: 1,
+            type: "mcq",
+            category: "spelling",
+            question: "أيّ الجمل التالية صحيحة إملائيًا؟",
+            choices: [
+              "ذهبت إلئ المدرسه صباحًا.",
+              "ذهبتُ إلى المدرسة صباحًا.",
+              "زهبت إلى المدرسه صباحًا.",
+            ],
+            correctIndex: 1,
+            explanation:
+              "الكلمة الصحيحة هي \"ذهبتُ\" بحرف الذال، و\"إلى\" بهمزة على الألف المقصورة، و\"المدرسة\" بتاء مربوطة.",
+          },
+          {
+            id: 2,
+            type: "mcq",
+            category: "grammar",
+            question:
+              "اختر الجملة التي تحتوي على فاعل مرفوع وعلامة رفعه الضمّة الظاهرة:",
+            choices: [
+              "قرأتُ الكتابَ الجديدَ.",
+              "قرأ الطالبُ الدرسَ بتركيزٍ.",
+              "أُعطيَ الطفلُ هديةً جميلةً.",
+            ],
+            correctIndex: 1,
+            explanation:
+              "في الجملة الثانية: \"الطالبُ\" فاعل مرفوع بالضمّة الظاهرة، بينما في الأولى الفاعل ضمير مستتر، وفي الثالثة الفاعل \"الطفلُ\" لكن التركيز هنا على أوضح مثال.",
+          },
+          {
+            id: 3,
+            type: "fill",
+            category: "spelling",
+            question:
+              "اكمل الكلمة الصحيحة: \"الـ... جميل\" (قلم/قالم/قلمٌ). اكتب الكلمة دون تشكيل.",
+            answers: ["قلم", "القلم"],
+            explanation:
+              "الكلمة الصحيحة \"قلم\"، ويمكن أن تأتي مع التعريف \"القلم\" بحسب السياق.",
+          },
+          {
+            id: 4,
+            type: "mcq",
+            category: "grammar",
+            question: "أيّ الجمل التالية صحيحة نحويًا؟",
+            choices: [
+              "الطالبتانُ مجتهداتٌ.",
+              "الطالبتانِ مجتهدتانِ.",
+              "الطالبتانِ مجتهدونَ.",
+            ],
+            correctIndex: 1,
+            explanation:
+              "اسم مثنى مرفوع بالألف: \"الطالبتانِ\"، وخبره مثنى مرفوع بالألف: \"مجتهدتانِ\".",
+          },
+          {
+            id: 5,
+            type: "fill",
+            category: "vocab",
+            question: "اكتب مرادف كلمة \"سعيد\" (كلمة واحدة بدون تشكيل).",
+            answers: ["فرح", "مسرور", "مبسوط"],
+            explanation:
+              "من مرادفات \"سعيد\": فرِح، مسرور، مبسوط (وفي اللهجات العامية يُستخدم \"مبسوط\").",
+          },
+          {
+            id: 6,
+            type: "mcq",
+            category: "vocab",
+            question: "ما معنى كلمة \"وَطَن\" في الجملة: \"أحبّ وطني\"؟",
+            choices: [
+              "المدينة التي أسكن فيها الآن فقط.",
+              "البلد أو الأرض التي أنتمي إليها وأشعر بالولاء لها.",
+              "مكان العمل أو المدرسة.",
+            ],
+            correctIndex: 1,
+            explanation:
+              "\"الوطن\" هو البلد أو الأرض التي ينتمي إليها الإنسان ويشعر تجاهها بالمحبّة والانتماء.",
+          },
+          {
+            id: 7,
+            type: "mcq",
+            category: "spelling",
+            question: "أيّها الصحيح؟",
+            choices: ["مسؤول", "مسئول", "مسؤل"],
+            correctIndex: 0,
+            explanation:
+              "الكتابة الأصحّ هي \"مسؤول\"، ويمكن أيضًا أن تُكتب \"مسئول\" وفق بعض المدارس، لكن الأولى هي الأشهر في المعاجم الحديثة.",
+          },
+          {
+            id: 8,
+            type: "fill",
+            category: "grammar",
+            question:
+              "أعد كتابة الجملة دون خطأ: \"الطلاب حضروا هم إلى الدرس\" (اكتبها صحيحة).",
+            answers: ["الطلاب حضروا إلى الدرس", "الطلابُ حضروا إلى الدرس"],
+            explanation:
+              "لا نحتاج إلى ضمير \"هم\" لأن \"الطلاب\" فاعل ظاهر، فيكفي أن نقول: \"الطلاب حضروا إلى الدرس\".",
+          },
+          {
+            id: 9,
+            type: "mcq",
+            category: "spelling",
+            question: "اختر الشكل الصحيح للكلمة في الجملة: \"سأبقى في البيت اليوم، ... الجوّ ممطر\".",
+            choices: ["لآن", "لأنّ", "لان"],
+            correctIndex: 1,
+            explanation:
+              "الصحيح هو \"لأنّ\" بهمزة على الألف المشددة: سأبقى في البيت لأنّ الجوّ ممطر.",
+          },
+          {
+            id: 10,
+            type: "mcq",
+            category: "grammar",
+            question: "أي جملة تراعي مطابقة الخبر للمبتدأ جمع مؤنث؟",
+            choices: [
+              "الطالباتُ مجتهدونَ.",
+              "الطالباتُ مجتهداتٌ.",
+              "الطالباتُ مجتهدةً.",
+            ],
+            correctIndex: 1,
+            explanation:
+              "الجمع المؤنث السالم يرفع بالضمة: \"الطالباتُ\"، وخبره أيضًا جمع مؤنث سالم: \"مجتهداتٌ\".",
+          },
+          {
+            id: 11,
+            type: "fill",
+            category: "spelling",
+            question:
+              "صحّح الكلمة في الجملة: \"هذا قراري ولن أتع_____ عنه\" (تراجع/راجع). اكتب الفعل الصحيح فقط.",
+            answers: ["راجع", "اتراجع", "أتراجع"],
+            explanation:
+              "الفعل الصحيح هو \"أتراجع\": لن أَتراجعَ عنه. يمكن قبول \"اتراجع\" في سياق كتابة غير مشكولة.",
+          },
+          {
+            id: 12,
+            type: "mcq",
+            category: "vocab",
+            question: "أي كلمة هي الأقرب معنى لكلمة \"هادئ\" في وصف شخص؟",
+            choices: ["صاخب", "رزين", "منفعل"],
+            correctIndex: 1,
+            explanation:
+              "\"رَزين\" تعني شخصًا هادئًا متزنًا، بخلاف \"صاخب\" (كثير الضوضاء) و\"منفعل\" (سريع الغضب أو التوتر).",
+          },
+          {
+            id: 13,
+            type: "fill",
+            category: "grammar",
+            question:
+              "أكمل الجملة بالفعل المضارع المناسب: \"الطالبانِ ____ الواجبَ كلَّ يوم\" (يكتب/يكتبان/يكتبون).",
+            answers: ["يكتبان", "يكتبانُ"],
+            explanation:
+              "الفاعل مثنّى، لذا نستخدم فعلًا مثنّى: \"الطالبانِ يكتبان الواجبَ\"، والفعل يُثنّى بإضافة الألف والنون.",
+          },
+          {
+            id: 14,
+            type: "mcq",
+            category: "spelling",
+            question: "أيّ كتابة صحيحة لكلمة تدلّ على \"شيء غير معروف\"؟",
+            choices: ["شئ", "شيئ", "شيء"],
+            correctIndex: 2,
+            explanation:
+              "الكتابة الأشهر في العربية المعاصرة هي \"شيء\" بهمزة على كرسي بعد الياء، ويمكن أن تُكتب \"شيئ\" في بعض المدارس الإملائية القديمة.",
+          },
+          {
+            id: 15,
+            type: "mcq",
+            category: "grammar",
+            question: "اختر ترتيب الكلمات الصحيح لجملة مفيدة:",
+            choices: [
+              "في الحديقةِ يلعبُ الأطفالُ.",
+              "الأطفالُ في الحديقةِ يلعبُ.",
+              "يلعبُ الأطفالُ الحديقةَ في.",
+            ],
+            correctIndex: 0,
+            explanation:
+              "الجملة الأولى \"في الحديقةِ يلعبُ الأطفالُ\" أو \"يلعبُ الأطفالُ في الحديقةِ\" صحيحة نحويًا، أما الثانية فخبرها ناقص، والثالثة مضطربة.",
+          },
+          {
+            id: 16,
+            type: "fill",
+            category: "vocab",
+            question:
+              "اكتب كلمة واحدة تعبّر عن \"الشعور بالأسف لما فعلت\" (بدون تشكيل).",
+            answers: ["ندم", "أسف"],
+            explanation:
+              "من الكلمات المناسبة: \"ندم\" أو \"أسف\"؛ كأن تقول: أشعر بالندم على ما فعلت.",
+          },
+        ];
+
+        let filteredQuestions = questions.slice();
+        let currentIndex = 0;
+        let stats = { total: 0, correct: 0 };
+        let currentQuestion = null;
+        let currentMode = "mixed";
+
+        function applyMode(mode) {
+          currentMode = mode;
+          if (mode === "spelling") {
+            filteredQuestions = questions.filter((q) => q.category === "spelling");
+          } else if (mode === "grammar") {
+            filteredQuestions = questions.filter((q) => q.category === "grammar");
+          } else {
+            filteredQuestions = questions.slice();
+          }
+          if (!filteredQuestions.length) {
+            filteredQuestions = questions.slice();
+          }
+          currentIndex = 0;
+          stats = { total: 0, correct: 0 };
+          renderStats();
+          pickRandomQuestion();
+        }
+
+        function pickRandomQuestion() {
+          const idx = Math.floor(Math.random() * filteredQuestions.length);
+          currentQuestion = filteredQuestions[idx];
+          renderQuestion();
+        }
+
+        function renderQuestion() {
+          if (!currentQuestion) return;
+          feedbackEl.className = "quiz-feedback";
+          feedbackEl.textContent =
+            "أجب عن السؤال، ثم اضغط على زر التحقق لرؤية الصواب.";
+          explanationEl.textContent = "";
+          inputEl.value = "";
+          optionsEl.innerHTML = "";
+          inputWrapperEl.style.display = "none";
+
+          const totalCount = filteredQuestions.length;
+          indexEl.textContent = String(currentQuestion.id);
+          totalEl.textContent = String(totalCount);
+
+          questionEl.textContent = currentQuestion.question;
+
+          if (currentQuestion.type === "mcq") {
+            currentQuestion.choices.forEach((choice, idx) => {
+              const btn = document.createElement("button");
+              btn.type = "button";
+              btn.className = "btn quiz-option-btn small";
+              btn.dataset.index = String(idx);
+              btn.innerHTML = `
+                <span>${choice}</span>
+                <span class="btn-icon">●</span>
+              `;
+              btn.addEventListener("click", () => {
+                Array.from(optionsEl.querySelectorAll("button")).forEach((b) =>
+                  b.classList.remove("primary")
+                );
+                btn.classList.add("primary");
+                btn.dataset.selected = "true";
+              });
+              optionsEl.appendChild(btn);
+            });
+          } else if (currentQuestion.type === "fill") {
+            inputWrapperEl.style.display = "block";
+          }
+
+          renderStats();
+        }
+
+        function normalize(str) {
+          if (!str) return "";
+          return str
+            .trim()
+            .replace(/[،,_.,!?؟!]/g, "")
+            .replace(/ـ/g, "")
+            .replace(/\s+/g, " ")
+            .toLowerCase();
+        }
+
+        function checkAnswer() {
+          if (!currentQuestion) return;
+          let correct = false;
+
+          if (currentQuestion.type === "mcq") {
+            const selectedBtn = optionsEl.querySelector("button.primary");
+            if (!selectedBtn) {
+              feedbackEl.className = "quiz-feedback error";
+              feedbackEl.textContent =
+                "اختر إجابة أولًا قبل الضغط على زر التحقق.";
+              return;
+            }
+            const selectedIndex = parseInt(selectedBtn.dataset.index, 10);
+            correct = selectedIndex === currentQuestion.correctIndex;
+          } else if (currentQuestion.type === "fill") {
+            const user = normalize(inputEl.value);
+            const answers = currentQuestion.answers || [];
+            correct = answers.some(
+              (ans) => normalize(ans) === user && user.length > 0
+            );
+          }
+
+          stats.total += 1;
+          if (correct) stats.correct += 1;
+
+          if (correct) {
+            feedbackEl.className = "quiz-feedback success";
+            feedbackEl.textContent =
+              "إجابة رائعة! استمرّ 👍 (تخيّل تصفيقًا هنا)";
+          } else {
+            feedbackEl.className = "quiz-feedback error";
+            feedbackEl.textContent =
+              "ليست دقيقة تمامًا، اقرأ الشرح وحاول في السؤال التالي.";
+          }
+
+          explanationEl.textContent = currentQuestion.explanation || "";
+          renderStats();
+        }
+
+        function renderStats() {
+          if (!statsEl) return;
+          if (stats.total === 0) {
+            statsEl.textContent =
+              "لم تبدأ بعد العدّ؛ حاول الإجابة على أوّل سؤال لنحسب تقدّمك.";
+          } else {
+            const ratio = Math.round((stats.correct / stats.total) * 100);
+            statsEl.textContent =
+              "إجابات صحيحة: " +
+              stats.correct +
+              " من " +
+              stats.total +
+              " (" +
+              ratio +
+              "% تقريبًا).";
+          }
+        }
+
+        function nextQuestion() {
+          pickRandomQuestion();
+        }
+
+        function init() {
+          if (!questionEl) return;
+
+          // وضع افتراضي
+          applyMode("mixed");
+
+          checkBtn.addEventListener("click", checkAnswer);
+          nextBtn.addEventListener("click", nextQuestion);
+          inputEl.addEventListener("keydown", (evt) => {
+            if (evt.key === "Enter") {
+              evt.preventDefault();
+              checkAnswer();
+            }
+          });
+
+          if (modeSelect) {
+            modeSelect.querySelectorAll(".pill-option").forEach((btn) => {
+              btn.addEventListener("click", () => {
+                modeSelect
+                  .querySelectorAll(".pill-option")
+                  .forEach((b) => b.classList.remove("active"));
+                btn.classList.add("active");
+                const mode = btn.getAttribute("data-mode") || "mixed";
+                applyMode(mode);
+              });
+            });
+          }
+        }
+
+        return { init };
+      })();
+
+      /* =========================
+         DIALECTS & FUN (WITH SAUDI FOCUS)
+         ========================= */
+      const DialectsModule = (function () {
+        const topicsContainer = document.getElementById("dialect-topics");
+        const titleEl = document.getElementById("dialect-topic-title");
+        const msaEl = document.getElementById("dialect-msa");
+        const tableEl = document.getElementById("dialect-table");
+        const extraNoteEl = document.getElementById("dialect-extra-note");
+        const funChallengeEl = document.getElementById("fun-challenge");
+
+        const topics = [
+          {
+            id: "greeting",
+            label: "التحيّة",
+            title: "التحية والسؤال عن الحال",
+            msa: "السلام عليكم، كيف حالك؟",
+            dialects: [
+              {
+                name: "المصرية",
+                phrase: "إزيّك؟ عامل إيه؟",
+                note: "تُستخدم بكثرة في مصر، و\"إزيّك\" تعني \"كيف حالك\".",
+              },
+              {
+                name: "الشامية",
+                phrase: "مرحبًا، كيفك؟",
+                note: "مستخدمة في سوريا ولبنان والأردن وفلسطين، وتعني \"كيف حالك\".",
+              },
+              {
+                name: "السعودية",
+                phrase: "هلا والله، كيف الحال؟",
+                note: "\"هلا والله\" تحية سعودية دافئة تعطي شعورًا بالقرب والودّ.",
+              },
+            ],
+            extra:
+              "في جميع اللهجات تقريبًا، يمكن استخدام \"السلام عليكم\" كبداية محترمة قبل أي تحية محلية.",
+            challenge:
+              "اختر لهجة واحدة وقل التحية بصوت عالٍ ثلاث مرّات، ثم اكتبها في دفتر صغير بجانب ترجمتها إلى لغتك الأم.",
+          },
+          {
+            id: "buying",
+            label: "الشراء",
+            title: "الشراء من المتجر",
+            msa: "كم سعر هذا الكتاب من فضلك؟",
+            dialects: [
+              {
+                name: "المصرية",
+                phrase: "بكام الكتاب ده لو سمحت؟",
+                note: "\"بكام\" اختصار لـ \"بكم\"، و\"ده\" تعني \"هذا\".",
+              },
+              {
+                name: "الشامية",
+                phrase: "قديش حق هالكتاب لو سمحت؟",
+                note: "\"قديش\" تعني \"كم\"، و\"هالكتاب\" تعني \"هذا الكتاب\".",
+              },
+              {
+                name: "السعودية",
+                phrase: "بكم الكتاب هذا لو سمحت؟",
+                note: "لاحظ استخدام ترتيب الكلمات: \"بكم الكتاب هذا\" بدلاً من \"كم سعر هذا الكتاب\".",
+              },
+            ],
+            extra:
+              "كثير من لهجات العرب تقرّب \"كم\" إلى \"بكم\" أو \"بكام\"، مع إضافة \"هالـ\" أو \"هذا\" قبل الاسم للإشارة إلى القرب.",
+            challenge:
+              "اكتب قائمة قصيرة (٣ أشياء) تريد شراءها بالعربية، ثم جرّب أن تسأل عن السعر بأسلوبين مختلفين على الأقل.",
+          },
+          {
+            id: "thanks",
+            label: "الشكر",
+            title: "التعبير عن الشكر",
+            msa: "شكرًا جزيلًا، لقد ساعدتني كثيرًا.",
+            dialects: [
+              {
+                name: "المصرية",
+                phrase: "متشكر جدًا، تعبتك معايا.",
+                note: "\"متشكر\" مأخوذة من \"مُتشكر\" أي \"شاكر\"، وتعني \"أنا ممتن\".",
+              },
+              {
+                name: "الشامية",
+                phrase: "يسلمو كتير، ما قصّرت.",
+                note: "\"يسلمو\" من \"تسلم يداك\"، وتُستخدم كثيرًا للتعبير عن الشكر.",
+              },
+              {
+                name: "السعودية",
+                phrase: "مشكور يا أخي، ما قصّرت.",
+                note: "تعبير شائع في السعودية والخليج، يجمع بين الشكر والثناء على الجهد.",
+              },
+            ],
+            extra:
+              "في معظم البلدان العربية، يمكن استخدام \"شكرًا\" وحدها كما هي، وتُفهم في كل مكان تقريبًا.",
+            challenge:
+              "اختر جملة شكر من لهجة تعجبك، وأرسلها كرسالة نصيّة لصديق عربي واطلب منه أن يشرح لك شعور هذه العبارة في ثقافته.",
+          },
+          {
+            id: "directions",
+            label: "السؤال عن الطريق",
+            title: "السؤال عن الاتجاهات",
+            msa: "من فضلك، أين تقع أقرب محطة حافلات؟",
+            dialects: [
+              {
+                name: "المصرية",
+                phrase: "لو سمحت، فين أقرب موقف أتوبيس؟",
+                note: "\"فين\" تعني \"أين\"، و\"أتوبيس\" هي الحافلة.",
+              },
+              {
+                name: "الشامية",
+                phrase: "لو سمحت، وين أقرب موقف باص؟",
+                note: "\"وين\" تعني \"أين\"، و\"باص\" للحافلة.",
+              },
+              {
+                name: "السعودية",
+                phrase: "لو تسمح، وين أقرب موقف باص أو محطة نقل؟",
+                note: "\"وين\" مستخدمة كثيرًا في السعودية، مع مفردات قريبة من الشامي والخليجي.",
+              },
+            ],
+            extra:
+              "كلمات السؤال عن المكان مثل (فين، وين، وينه) تختلف، لكنها كلها تعني تقريبًا \"أين\".",
+            challenge:
+              "ارسم خريطة صغيرة لحيّك على ورقة، ثم اكتب جملة سؤال عن أقرب متجر أو مسجد في ثلاث لهجات مختلفة.",
+          },
+          {
+            id: "food",
+            label: "في المطعم",
+            title: "طلب الطعام والشراب",
+            msa: "أودّ طلب وجبة خفيفة وكوب من الماء من فضلك.",
+            dialects: [
+              {
+                name: "المصرية",
+                phrase: "عايز أطلب حاجة خفيفة وكوباية ميّه لو سمحت.",
+                note: "\"عايز\" للمذكر و\"عايزة\" للمؤنث، و\"ميّه\" للماء.",
+              },
+              {
+                name: "الشامية",
+                phrase: "بدي أطلب شي خفيف وكاسة مي لو سمحت.",
+                note: "\"بدي\" تعني \"أريد\"، و\"شي خفيف\" أي وجبة بسيطة.",
+              },
+              {
+                name: "السعودية",
+                phrase: "أبغى أطلب شي خفيف وكوب مويا لو سمحت.",
+                note: "\"أبغى\" فعل رغبة شائع في السعودية، و\"مويا\" للماء.",
+              },
+            ],
+            extra:
+              "تعابير الإرادة تختلف: (أريد، أودّ، عايز، بدي، أبغى)، وكلّها مفهومة إذا قيلت في سياق مهذّب.",
+            challenge:
+              "اكتب طلبك المفضّل في مطعم بالعربية الفصحى، ثم حوّله إلى لهجتين على الأقل مستخدمًا العبارات السابقة.",
+          },
+          {
+            id: "weather",
+            label: "الجوّ والطقس",
+            title: "التحدّث عن حالة الجوّ",
+            msa: "كيف هو الطقس عندكم اليوم؟",
+            dialects: [
+              {
+                name: "المصرية",
+                phrase: "الدنيا حرّ عندكم ولاّ الجوّ لطيف؟",
+                note: "\"الدنيا\" تُستخدم مجازًا للدلالة على الجوّ أو الحالة العامة.",
+              },
+              {
+                name: "الشامية",
+                phrase: "كيف الجوّ عندكم اليوم؟ برد ولا دفيان؟",
+                note: "\"دفيان\" تعني معتدل أو يميل للدفء.",
+              },
+              {
+                name: "السعودية",
+                phrase: "كيف الجوّ اليوم عندكم؟ حرّ ولا برد؟",
+                note: "سؤال بسيط ومباشر، يُستخدم يوميًا في السعودية بين الناس.",
+              },
+            ],
+            extra:
+              "الحديث عن الطقس موضوع ممتاز لفتح حوار قصير مع شخص جديد باللغة العربية، لأنه بسيط وآمن اجتماعيًا.",
+            challenge:
+              "سجّل في دفترٍ قصيرٍ جملةً عن الجوّ الحقيقي عندك اليوم بالفصحى، ثم جرّب أن تكتبها بلهجتين مختلفتين.",
+          },
+          {
+            id: "saudi-only",
+            label: "سعودي يومي",
+            title: "عبارات يومية باللهجة السعودية",
+            msa: "مجموعة من الجمل اليومية، معادِلة لها بالفصحى، لكن مكتوبة باللهجة السعودية.",
+            dialects: [
+              {
+                name: "السعودية",
+                phrase: "أبشِر، ولا يهمّك.",
+                note: "تُقال عند طمأنة شخص أنّ طلبه سيتمّ. تقابلها في الفصحى: \"سأفعل ما تريد، لا تقلق.\"",
+              },
+              {
+                name: "السعودية",
+                phrase: "خلّها على الله.",
+                note: "عبارة توكّل وتهدئة، معناها: \"اترك الأمر لله، ولا تقلق كثيرًا.\"",
+              },
+              {
+                name: "السعودية",
+                phrase: "وش رأيك؟",
+                note: "سؤال عن الرأي: \"ما رأيك؟\" بالفصحى.",
+              },
+              {
+                name: "السعودية",
+                phrase: "ما شاء الله تبارك الله.",
+                note: "تعبير إعجاب مع ذكر الله، يُستخدم كثيرًا عند الثناء على شيء جميل.",
+              },
+            ],
+            extra:
+              "اللهجة السعودية غنيّة بالتعابير القصيرة المحمّلة بالمعاني الدينية والاجتماعية في الوقت نفسه.",
+            challenge:
+              "اختر جملتين من الجمل السعودية السابقة، ودوّن تحت كل واحدة معناها بالفصحى وباللغة الإنجليزية إن استطعت.",
+          },
+        ];
+
+        let currentTopicId = topics[0].id;
+
+        function renderTopics() {
+          if (!topicsContainer) return;
+          topicsContainer.innerHTML = "";
+          topics.forEach((topic, index) => {
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "pill-option" + (index === 0 ? " active" : "");
+            btn.dataset.topicId = topic.id;
+            btn.textContent = topic.label;
+            btn.addEventListener("click", () => {
+              topicsContainer
+                .querySelectorAll(".pill-option")
+                .forEach((b) => b.classList.remove("active"));
+              btn.classList.add("active");
+              currentTopicId = topic.id;
+              renderTopic(topic.id);
+            });
+            topicsContainer.appendChild(btn);
+          });
+        }
+
+      function renderTopic(topicId) {
+        const topic = topics.find((t) => t.id === topicId);
+        if (!topic || !titleEl || !msaEl || !tableEl || !extraNoteEl) return;
+
+        titleEl.textContent = topic.title;
+        msaEl.textContent = "بالفصحى: " + topic.msa;
+
+        tableEl.innerHTML = "";
+        topic.dialects.forEach((d) => {
+          const box = document.createElement("div");
+          box.className = "dialect-variant";
+          box.innerHTML = `
+              <div class="dialect-variant-header">
+                <span>${d.name}</span>
+                <span class="badge-soft">لهجة</span>
+              </div>
+              <div class="dialect-variant-body">${d.phrase}</div>
+              <div class="dialect-note">${d.note}</div>
+            `;
+          tableEl.appendChild(box);
+        });
+
+        extraNoteEl.textContent = topic.extra;
+        if (funChallengeEl) {
+          funChallengeEl.textContent = "تحدّي صغير: " + topic.challenge;
+        }
+      }
+function init() {
+if (!topicsContainer) return;
+renderTopics();
+renderTopic(currentTopicId);
+}
+return { init };
+})();
+
+document.addEventListener("DOMContentLoaded", function () {
+SPA.init();
+MistakesModule.init();
+QuizModule.init();
+DialectsModule.init();
+});
+})();
+</script>
+</body>
+</html>
