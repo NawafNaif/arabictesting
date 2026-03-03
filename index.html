@@ -15,20 +15,20 @@
 
   <style>
     :root {
-      --primary: #0f766e;
-      --primary-soft: #14b8a6;
-      --accent: #f97316;
-      --accent-soft: #fed7aa;
-      --bg: #0f172a;
-      --bg-elevated: #020617;
+      --primary: #06b6d4;        /* سماوي مشرق */
+      --primary-soft: #22c55e;   /* أخضر زاهٍ */
+      --accent: #f97316;         /* برتقالي دافئ */
+      --accent-soft: #fed7aa;    /* برتقالي فاتح */
+      --bg: #0b1120;             /* كحلي أفتح من السابق */
+      --bg-elevated: #111827;    /* خلفيات الكروت */
       --bg-card: #020617;
-      --bg-soft: #1e293b;
-      --text: #e5e7eb;
-      --text-muted: #9ca3af;
+      --bg-soft: #1f2937;
+      --text: #f9fafb;           /* نص فاتح أكثر */
+      --text-muted: #cbd5f5;     /* رمادي مائل للأزرق أوضح */
       --danger: #ef4444;
       --success: #22c55e;
-      --border-color: #334155;
-      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.55);
+      --border-color: #4b5563;
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.65);
       --radius-lg: 16px;
       --radius-md: 10px;
       --transition-fast: 0.2s ease;
@@ -45,7 +45,7 @@
       padding: 0;
       font-family: "Cairo", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
         sans-serif;
-      background: radial-gradient(circle at top, #1e293b 0, #020617 40%, #000 100%);
+      background: radial-gradient(circle at top, rgb(79, 255, 146) 0, #0b1120 45%, #020617 100%);
       color: var(--text);
       min-height: 100%;
     }
@@ -246,7 +246,7 @@
       background: radial-gradient(circle at top, #1f2937 0, #020617 55%);
       padding: 18px;
       box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(148, 163, 184, 0.3);
+      border: 1px solid rgba(148, 163, 184, 0.45);
       position: relative;
       overflow: hidden;
     }
@@ -272,9 +272,9 @@
     }
 
     .section-panel {
-      background: rgba(15, 23, 42, 0.9);
+      background: rgba(15, 23, 42, 0.94);
       border-radius: var(--radius-md);
-      border: 1px solid rgba(148, 163, 184, 0.4);
+      border: 1px solid rgba(148, 163, 184, 0.6);
       padding: 14px 14px 16px;
       min-height: 260px;
       display: none;
@@ -425,9 +425,9 @@
     }
 
     .tips-card {
-      background: rgba(15, 23, 42, 0.95);
+      background: rgba(15, 23, 42, 0.96);
       border-radius: var(--radius-md);
-      border: 1px solid rgba(148, 163, 184, 0.55);
+      border: 1px solid rgba(148, 163, 184, 0.6);
       padding: 12px 13px 14px;
       font-size: 13px;
       display: flex;
@@ -516,9 +516,9 @@
 
     /* Quiz */
     .quiz-card {
-      background: rgba(15, 23, 42, 0.95);
+      background: rgba(15, 23, 42, 0.96);
       border-radius: var(--radius-md);
-      border: 1px solid rgba(148, 163, 184, 0.55);
+      border: 1px solid rgba(148, 163, 184, 0.6);
       padding: 12px 13px 14px;
       display: flex;
       flex-direction: column;
@@ -597,9 +597,9 @@
 
     /* Dialects */
     .dialect-card {
-      background: rgba(15, 23, 42, 0.95);
+      background: rgba(15, 23, 42, 0.96);
       border-radius: var(--radius-md);
-      border: 1px solid rgba(148, 163, 184, 0.55);
+      border: 1px solid rgba(148, 163, 184, 0.6);
       padding: 12px 13px 14px;
       display: flex;
       flex-direction: column;
@@ -791,10 +791,6 @@
     <section class="hero" aria-label="مقدمة">
       <div class="hero-text">
         <h1 class="hero-title">حوّل القواعد والاختبارات واللهجات إلى رحلة ممتعة.</h1>
-        <p class="hero-subtitle">
-          بدلاً من لوحات الكتابة والصوت الآلي، ستجد هنا بنك أسئلة، أخطاء شائعة،
-          تحدّيات سريعة، ونوافذ على اللهجات العربية للمتعلمين من كل الخلفيات.
-        </p>
         <div class="hero-badges">
           <span class="badge-pill">
             <strong>بدون صوت</strong> تركيز على الفهم والكتابة
@@ -1177,11 +1173,8 @@
               color: #a5b4fc;
             "
           >
-            <span>💡</span>
-            <span>
-              هذه الصفحة تعمل بالكامل دون صوت آلي؛ الهدف أن تستخدم عينك وعقلك
-              ودفترك، لا أن تستمع فقط.
-            </span>
+            
+            
           </div>
         </aside>
       </div>
@@ -2074,4 +2067,3 @@ DialectsModule.init();
 </script>
 </body>
 </html>
-
