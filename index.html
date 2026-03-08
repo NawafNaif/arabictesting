@@ -763,7 +763,7 @@
         <div class="brand-logo">أ</div>
         <div>
           <div class="brand-text-main">مسار تعلّم العربية</div>
-          <span class="brand-text-sub">قواعد · اختبارات · لهجات</span>
+          <span class="brand-text-sub">قواعد · اختبارات · لهجات · تحسين الخط</span>
         </div>
       </div>
       <nav aria-label="أقسام التعلّم">
@@ -783,6 +783,10 @@
           <span class="icon">🌍</span>
           <span>لهجات ومرح</span>
         </button>
+        <button class="nav-button" data-target="handwriting" type="button">
+          <span class="icon">✍️</span>
+          <span>تحسين الخط</span>
+        </button>
       </nav>
     </div>
   </header>
@@ -801,13 +805,16 @@
           <span class="badge-pill">
             <strong>لهجات</strong> مصرية، شامية، سعودية
           </span>
+          <span class="badge-pill">
+            <strong>تحسين الخط</strong> كراسات النسخ والرقعة
+          </span>
         </div>
       </div>
       <div class="hero-highlight">
         ابدأ بـ<strong>أساسيات الكتابة</strong> لتتعرّف على الأخطاء الشائعة وخطّة
-        التحسين، ثم انتقل إلى <strong>الاختبارات السريعة</strong> لتتحدّى نفسك، وأنهِ
-        الجولة مع <strong>لهجات ومرح</strong> لتتعرّف على العبارات اليومية في أكثر
-        من بلد عربي، مع زاوية خاصة باللهجة السعودية.
+        التحسين، ثم انتقل إلى <strong>الاختبارات السريعة</strong> لتتحدّى نفسك،
+        و<strong>لهجات ومرح</strong> للعبارات اليومية، و<strong>تحسين الخط</strong> لتحميل
+        كراسات خط النسخ والرقعة والتدرّب عليها.
       </div>
     </section>
 
@@ -1085,6 +1092,72 @@
               </div>
             </div>
           </section>
+
+          <!-- Handwriting: booklets (Nasakh & Ruq'ah) -->
+          <section
+            class="section-panel"
+            id="section-handwriting"
+            aria-labelledby="handwriting-title"
+          >
+            <div class="section-header">
+              <div>
+                <h2 class="section-title" id="handwriting-title">
+                  <span class="icon">✍️</span>
+                  تحسين الخط — كراسات النسخ والرقعة
+                </h2>
+                <p class="section-subtitle">
+                  خطّا النسخ والرقعة من أشهر خطوط العربية؛ هنا كراسات جاهزة للتحميل
+                  والتدرّب على تحسين يدك.
+                </p>
+              </div>
+            </div>
+
+            <div class="section-body">
+              <div class="tips-card">
+                <div class="tips-card-header">
+                  <span>خط النسخ وخط الرقعة</span>
+                </div>
+                <ul class="tips-list">
+                  <li>
+                    <strong>خط النسخ</strong>: خط واضح مقروء، يُستخدم في الكتب والمطبوعات
+                    والقرآن الكريم، ويمتاز بالاستدارة والنعومة.
+                  </li>
+                  <li>
+                    <strong>خط الرقعة</strong>: خط يومي سريع، يُكتب به في المعاملات والملاحظات
+                    واللوحات، ويمتاز بالزوايا والسرعة في الكتابة.
+                  </li>
+                </ul>
+              </div>
+
+              <div class="tips-card">
+                <div class="tips-card-header">
+                  <span>كراسات الخط للتحميل</span>
+                  <span class="badge-soft">رابط واحد — مجلد Google Drive</span>
+                </div>
+                <p class="control-label" style="margin: 0 0 8px;">
+                  المجلد يحتوي على كراستين جاهزتين للتحميل:
+                </p>
+                <ul class="tips-list" style="margin-bottom: 10px;">
+                  <li><strong>كراسة خط الرقعة</strong></li>
+                  <li><strong>كراسة خط النسخ</strong></li>
+                </ul>
+                <a
+                  href="https://drive.google.com/drive/folders/1xV9KfQqHacfeCUcizYQuoO1gbC7IVmtb?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn primary"
+                  style="display: inline-flex; text-decoration: none;"
+                >
+                  <span class="btn-icon">📂</span>
+                  <span>فتح مجلد الخط (Google Drive)</span>
+                </a>
+                <p class="control-label" style="margin-top: 8px;">
+                  بعد فتح الرابط، اختر الكراسة التي تريدها ثم حمّلها واطبعها أو
+                  تدرّب عليها على الشاشة.
+                </p>
+              </div>
+            </div>
+          </section>
         </div>
 
         <!-- Right: guidance / meta tips -->
@@ -1159,6 +1232,10 @@
                 في <strong>اللهجات</strong>، اختر موقفًا واحدًا فقط، وكرّر العبارات
                 بصوت عالٍ مع صديق، كأنكم تمثّلون مشهدًا قصيرًا.
               </li>
+              <li>
+                في <strong>تحسين الخط</strong>، حمّل كراسة النسخ أو الرقعة من الرابط،
+                ثم اكتب يوميًا بضع أسطر لترسيخ الشكل.
+              </li>
             </ul>
           </div>
           <div
@@ -1199,6 +1276,7 @@
           foundation: document.getElementById("section-foundation"),
           quizzes: document.getElementById("section-quizzes"),
           dialects: document.getElementById("section-dialects"),
+          handwriting: document.getElementById("section-handwriting"),
         };
 
         function showSection(targetId) {
